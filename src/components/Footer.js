@@ -1,6 +1,6 @@
 const Footer = () => {
     return (
-        <div>
+        <footer>
             <img src=""/>
             <div>
                 <h3>Links</h3>
@@ -29,7 +29,7 @@ const Footer = () => {
                     <li><a href="">C</a></li>
                 </ul>
             </div>
-        </div>
+        </footer>
     )
 }
 

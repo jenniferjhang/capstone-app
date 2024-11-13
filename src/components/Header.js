@@ -2,9 +2,9 @@ import Logo from '../assets/Logo.svg'
 
 const Header = () => {
     return (
-        <div>
+        <header>
             <img src={Logo}/>
-        </div>
+        </header>
     )
 }
 

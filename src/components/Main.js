@@ -5,12 +5,12 @@ import AboutSection from './AboutSection';
 
 const Main = () => {
     return (
-        <div>
+        <main>
             <HeroSection />
             <SpecialsSection />
             <TestimonialsSection />
             <AboutSection />
-        </div>
+        </main>
     )
 }
 

@@ -1,8 +1,8 @@
 const SpecialsSection = () => {
     return (
-        <div>
+        <section>
             specials
-        </div>
+        </section>
     )
 }
 
