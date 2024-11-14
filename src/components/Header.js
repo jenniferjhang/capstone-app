@@ -1,9 +1,9 @@
-import Logo from '../assets/Logo.svg'
+
 
 const Header = () => {
     return (
         <header>
-            <img src={Logo}/>
+            <a>🥗 50% Off select specials this week! 🛒</a>
         </header>
     )
 }

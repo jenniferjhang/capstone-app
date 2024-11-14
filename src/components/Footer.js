@@ -1,8 +1,11 @@
+import '../style.css';
+import Logo from '../assets/Logo.svg'
+
 const Footer = () => {
     return (
         <footer>
-            <img src=""/>
-            <div>
+            <img src={Logo} className="logo"/>
+            <div className="footer-list">
                 <h3>Links</h3>
                 <ul>
                     <li><a href="">Home</a></li>
@@ -13,7 +16,7 @@ const Footer = () => {
                     <li><a href="">Reserve a Table</a></li>
                 </ul>
             </div>
-            <div>
+            <div className="footer-list">
                 <h3>Contact</h3>
                 <ul>
                     <li><a href="">Address</a></li>
@@ -21,7 +24,7 @@ const Footer = () => {
                     <li><a href="">Email</a></li>
                 </ul>
             </div>
-            <div>
+            <div className="footer-list">
                 <h3>Social</h3>
                 <ul>
                     <li><a href="">A</a></li>
