@@ -34,7 +34,7 @@ export const TestimonialsCard = ({rating, title, description, imageSrc, userName
     return (
         <div className="testimonials-card">
             <div className="icon-rating">
-                <span class="material-symbols-rounded">
+                <span className="material-symbols-rounded">
                     star
                 </span>
                 <h4>{rating}</h4>
