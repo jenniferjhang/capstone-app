@@ -1,23 +1,15 @@
-import React, { useState } from "react";
-//object destructuring, imports react, then useState
+import React, { useState, useReducer } from "react";
 
-const BookingForm = () => {
-    //initial state values
+const BookingForm = (updateTimes, initializeTimes) => {
     const [formValues, setFormValues] = useState({
         date: "",
         time: "",
         guests: "1",
-        occasion: "",
+        occasion: "hello",
     });
-    const [availableTimes, setAvailableTimes] = useState({
-        option1: "17:00",
-        option2: "18:00",
-        option3: "19:00",
-        option4: "20:00",
-        option5: "21:00",
-        option6: "22:00",
-    });
-    //create copy & update value
+
+    const [times, dispatch] = useReducer(updateTimes, initializeTimes);
+
     const handleChange = (e) => {
         const {name, value} = e.target;
         setFormValues((prevFormValues) => ({
@@ -25,7 +17,11 @@ const BookingForm = () => {
             [name]: value,
         }));
     };
-    //handle submit
+
+    const handleSelect = (action) => {
+        dispatch ({ type: "BOOKED", id: action.id })
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log(formValues);
@@ -51,12 +47,15 @@ const BookingForm = () => {
                     value={formValues.time}
                     onChange={handleChange}
                 >
-                    <option>{availableTimes.option1}</option>
-                    <option>{availableTimes.option2}</option>
-                    <option>{availableTimes.option3}</option>
-                    <option>{availableTimes.option4}</option>
-                    <option>{availableTimes.option5}</option>
-                    <option>{availableTimes.option6}</option>
+                    {times.map((time) => (
+                        <div key={time.id}>
+                            <option
+                                selected={time.booked}
+                                onChange={() => handleSelect(time)}>
+                                {time.slot}
+                            </option>
+                        </div>
+                    ))}
                 </select>
                 <label htmlFor="guests">How many guests?</label>
                 <input
@@ -75,8 +74,10 @@ const BookingForm = () => {
                     value={formValues.occasion}
                     onChange={handleChange}
                 >
+                    <option>Choose an occasion</option>
                     <option>Birthday</option>
                     <option>Anniversary</option>
+                    <option>Other</option>
                 </select>
                 <button className="primary-button" type="submit">Make Your Reservation</button>
             </form>
